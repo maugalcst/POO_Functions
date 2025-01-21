@@ -11,32 +11,35 @@ public class EjemploAutomovilEnum {
         System.out.println("mazda.fabricante = " + mazda.getFabricante());
         mazda.setTipo(TipoAutomovil.PICKUP);
 
-        TipoAutomovil tipoSubaru = subaru.getTipo();
-        System.out.println("Tipo subaru: " + tipoSubaru.getNombre());
-        System.out.println("Tipo desc. subaru: " + tipoSubaru.getDescripcion());
+        TipoAutomovil tipo = subaru.getTipo();
+        System.out.println("Tipo subaru: " + tipo.getNombre());
+        System.out.println("Tipo desc. subaru: " + tipo.getDescripcion());
 
-        switch (tipoSubaru){
-            case CONVERTIBLES:
+        tipo = mazda.getTipo();
+        switch (tipo){
+            case CONVERTIBLES ->
                 System.out.println("El automovil es deportivo y descapotable de dos puertas");
-                break;
-            case COUPE:
+            case COUPE ->
                 System.out.println("Es un automovil pequeño de dos puertas y tipicamente deportivo");
-                break;
-            case FURGON:
+            case FURGON ->
                 System.out.println("Es un automovil utilitario de transporte, de empresas");
-                break;
-            case HATCHBACK:
+            case HATCHBACK ->
                 System.out.println("Es un automovil mediano compacto, aspecto deportivo");
-                break;
-            case PICKUP:
+            case PICKUP ->
                 System.out.println("Es un automovil de doble cabina o camioneta");
-                break;
-            case SEDAN:
+            case SEDAN ->
                 System.out.println("Es un automovil mediano");
-                break;
-            case STATION_WAGON:
+            case STATION_WAGON ->
                 System.out.println("Es un automovil más grande, con maleta grande");
-                break;
+        }
+
+        TipoAutomovil[] tipos = TipoAutomovil.values();
+        for (TipoAutomovil ta : tipos){
+            System.out.println(ta + " => " + ta.name() + ", " +
+                    ta.getNombre() + ", " +
+                    ta.getDescripcion() + ", " +
+                    ta.getNumeroPuerta());
+            System.out.println();
         }
     }
 }
